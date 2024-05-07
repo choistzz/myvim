@@ -3,12 +3,16 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-tree/nvim-web-devicons' 
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'keveinhwang91/rnvimr'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'kevinhwang91/rnvimr'
 Plug 'hrsh7th/nvim-cmp'
 vim.call('plug#end')
 
@@ -32,6 +36,22 @@ require('nvim-treesitter.configs').setup {
         additional_vim_regex_highlighting = false,
     },
 }
+
+-------------------------nvim-tree---------------------------
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 
 -------------------------nvim-lspconfig---------------------------
 require'lspconfig'.pyright.setup{}
